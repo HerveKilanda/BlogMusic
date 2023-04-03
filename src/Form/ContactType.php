@@ -15,8 +15,7 @@ class ContactType extends AbstractType
         $builder
             ->add('email')
             ->add('sujet')
-            ->add("Recommandation_article")
-            ->add('contenu',TextareaType::class)
+            ->add("Recommandation_article_ou_message",TextareaType::class)
             ->add('confirmation',SubmitType::class) 
 
                       

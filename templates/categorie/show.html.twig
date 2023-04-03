@@ -3,47 +3,29 @@
 {% block title %}Categorie{% endblock %}
 
 {% block body %}
-    <h1>Categorie</h1>
-
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ categorie.id }}</td>
-            </tr>
-            <tr>
-                <th>Nom</th>
-                <td>{{ categorie.nom }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <button class="btn btn-danger"><a href="{{ path('app_categorie_index') }}">back to list</a></button>
+    <h1>{{ categorie.nom }}</h1>
+    <button class="btn btn-danger"><a href="{{ path('app_categorie_index') }}">Retourner a la liste des categories</a></button>
      <div>
-          <table class="table">
+          <table class="table table-hover">
         <thead>
-            <tr>
-                <th>Id</th>
+            <tr class="table-primary">
+
                 <th>Titre</th>
                 <th>Image</th>
-                <th>Contenu</th>
-                <th>actions</th>
             </tr>
         </thead>
         <tbody>
         {% for article in articles %}
             <tr>
-                <td>{{ article.id }}</td>
                 <td>{{ article.titre }}</td>
-                <td>{{ article.image }}</td>
-                <td>{{ article.contenu }}</td>
+                <td><img src="{{ article.image }}" alt="..." height="300" widht="100"></td>
                 <td>
-                    <a href="{{ path('app_article_show', {'id': article.id}) }}">show</a>
+                    <a href="{{ path('app_article_show', {'id': article.id}) }}">Detail de l'article</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="5">no records found</td>
+                <td colspan="5">Aucun article disponible</td>
             </tr>
         {% endfor %}
         </tbody>

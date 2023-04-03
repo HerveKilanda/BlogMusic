@@ -22,22 +22,31 @@ class ContactController extends AbstractController
         if($form->isSubmitted() && $form->isValid()){
          $adresse = $form->get('email')->getData();
          $sujet = $form->get('sujet')->getData();
-         $recommandation = $form->get('Recommandation_article')->getData();
+         $recommandation = $form->get('Recommandation_article_ou_message')->getData();
          $contenu = $form->get('contenu')->getData();
 
          $email = (new Email())
          ->from($adresse)
          ->to('admin@admin.com')
          ->subject($sujet)
-         ->text($contenu)
+         
          ->text($recommandation);
 
 
          $mailer->send($email);
+
+         return $this->redirectToRoute('app_sucess');
         }
         return $this->renderForm('contact/index.html.twig', [
             'controller_name' => 'ContactController',
             'form' => $form
+        ]);
+    }
+    #[Route('/contact/sucess', name: 'app_sucess')]
+    public function sucess(): Response
+    {
+        return $this->render('sucess/index.html.twig', [
+            'controller_name' => 'SucessController',
         ]);
     }
 }

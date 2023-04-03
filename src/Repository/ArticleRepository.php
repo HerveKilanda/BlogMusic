@@ -63,4 +63,19 @@ class ArticleRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+
+
+   /**
+    * @return Article[] Returns an array of Article objects
+    */
+   public function findBySearch(string $text): array
+   {
+       return $this->createQueryBuilder('a')
+           ->andWhere('a.contenu LIKE :val')
+           ->setParameter('val', "%$text%")
+           ->getQuery()
+           ->getResult()
+       ;
+   }
+
 }
