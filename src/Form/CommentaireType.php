@@ -15,6 +15,8 @@ class CommentaireType extends AbstractType
             ->add('contenu')
             ->add('article')
             ->add('pseudo')
+            ->add('createdAt')
+            
         ;
     }
 

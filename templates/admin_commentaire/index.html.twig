@@ -21,17 +21,17 @@
                 <td>{{ commentaire.contenu }}</td>
                 <td>{{ commentaire.createdAt ? commentaire.createdAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
-                    <a href="{{ path('app_admin_commentaire_show', {'id': commentaire.id}) }}">show</a>
-                    <a href="{{ path('app_admin_commentaire_edit', {'id': commentaire.id}) }}">edit</a>
+                    <a href="{{ path('app_admin_commentaire_show', {'id': commentaire.id}) }}">Detail</a>
+                    <a href="{{ path('app_admin_commentaire_edit', {'id': commentaire.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">no records found</td>
+                <td colspan="4">aucun commentaire trouvé</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('app_admin_commentaire_new') }}">Create new</a>
+    <button class="btn btn-info"><a href="{{ path('app_admin_commentaire_new') }}">Créer un nouveau commentaire</a></button>
 {% endblock %}

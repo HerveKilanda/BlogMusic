@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Register{% endblock %}
+{% block title %}Inscription{% endblock %}
 
 {% block body %}
     {% for flash_error in app.flashes('verify_email_error') %}
@@ -8,8 +8,9 @@
     {% endfor %}
 
     <h1>Inscription</h1>
-
+    {#  J'ai mis un input caché pour me protegé d'une attaque CSRF #}
       {{ form_start(registrationForm) }}
+      <input type="hidden" name="admin-user-id" value="mon personnage prefere est sonic"> 
         {{ form_row(registrationForm.email) }}
         {{ form_row(registrationForm.pseudo) }}
         {{ form_row(registrationForm.plainPassword, {
@@ -23,6 +24,7 @@
  
   
 </form>
+
 
    
 {% endblock %}

@@ -13,6 +13,7 @@ class Commentaire1Type extends AbstractType
     {
         $builder
             ->add('contenu')
+
             
         ;
     }

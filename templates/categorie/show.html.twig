@@ -18,9 +18,9 @@
         {% for article in articles %}
             <tr>
                 <td>{{ article.titre }}</td>
-                <td><img src="{{ article.image }}" alt="..." height="300" widht="100"></td>
+                <td><img src="{{ article.image }}" alt="image" height="300" widht="100"></td>
                 <td>
-                    <a href="{{ path('app_article_show', {'id': article.id}) }}">Detail de l'article</a>
+                    <a href="{{ path('app_article_show', {'id': article.id}) }}">Lire plus -></a>
                 </td>
             </tr>
         {% else %}

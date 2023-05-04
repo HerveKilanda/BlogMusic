@@ -18,9 +18,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_admin_categorie_index') }}">back to list</a>
+    <button class="btn btn-info"><a href="{{ path('app_admin_categorie_index') }}">Retour a la liste des categories</a></button>
 
-    <a href="{{ path('app_admin_categorie_edit', {'id': categorie.id}) }}">edit</a>
+    <button class="btn btn-info"><a href="{{ path('app_admin_categorie_edit', {'id': categorie.id}) }}">Modifier le nom de la categorie</a></button>
 
     {{ include('admin_categorie/_delete_form.html.twig') }}
 {% endblock %}

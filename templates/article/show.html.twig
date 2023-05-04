@@ -6,50 +6,36 @@
     <h1>Article</h1>
 
   <div class="card text-bg-secondary mb-3">
-  <img src="{{ article.image }}" class="card-img-top" alt="...">
+  <img src="{{ article.image }}" class="card-img-top img-responsive" height="auto" max-width="100%" display="block" alt="image">
   <div class="card-body">
     <h5 class="card-title">{{ article.titre }}</h5>
-    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-    <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+    <p class="card-text">{{ article.contenu }}</p>  
   </div>
 </div>
 
+  {% if app.user %}
   
     <div>
-    <a href="{{ path('app_commentaire_new',{'id': article.id}) }}">Ajouter un commentaire</a>
+
     </div>
-    
     <div>
-    
+    {% endif %}
+      {% if app.user %}
+    <p>Commentaire:</p>
     {% for commentaire in commentaires %}
         <div>{{app.user.userIdentifier}} a dit :</div>
         <div>{{commentaire.contenu}}</div>
+    
     {% endfor %}
+    {% endif %}
     </div>
 {% endblock %}
+  
+  
+  
+    
         
-          {# <table class="table table-hover">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ article.id }}</td>
-            </tr>
-            <tr>
-                <th>Titre</th>
-                <td>{{ article.titre }}</td>
-            </tr>
-            <tr>
-                <th>Image</th>
-                <td><img src="{{ article.image }}" alt"..."></td>
-
-            </tr>
-            <tr>
-                <th>Contenu</th>
-                <td>{{ article.contenu }}</td>
-            </tr>
-        </tbody>
-    </table> #}
-        
+       
         
     
    

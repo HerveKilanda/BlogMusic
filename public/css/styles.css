@@ -8,9 +8,11 @@
 
 *{
     color: #fff;
+   
 }
 body{
-    background-color: #131417;
+   
+     background-color: #131417;
     font-size: var(--font-size-sm);
     letter-spacing: 1px;
 
@@ -28,4 +30,6 @@ H4,h1,a{
 .footer-titre{
     color: #fff;
 }
-
+h3{
+    color: #fff;
+}

@@ -4,19 +4,17 @@
 
 {% block body %}
 <h1>Resultat de ta recherche</h1>
-<h2 class="my-4">Voici les articles correspondant à votre recherche :</h3>
+<h2 style="color:#fff"class="my-4">Voici les articles correspondant à votre recherche :</h3>
 
         {% for article in articles %}
         <div>
-        <h3>{{ article.titre }}</h3>
+        <h3 style="color:#fff">{{ article.titre }}</h3>
         </div>
             <tr>
-                <td>{{ article.id }}</td>
-                <td></td>
-                <td>{{ article.image }}</td>
+                <img src="{{ article.image }}" class="img-responsive" height="auto" width="300"alt="...">
                 <td>{{ article.contenu }}</td>
                 <td>
-                    <a href="{{ path('app_article_show', {'id': article.id}) }}">show</a>
+                    <button class="btn btn-info"><a href="{{ path('app_article_show', {'id': article.id}) }}">detail</a></button>
                 </td>
             </tr>
 

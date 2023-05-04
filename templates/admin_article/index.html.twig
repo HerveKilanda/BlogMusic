@@ -20,7 +20,7 @@
             <tr>
                 <td>{{ article.id }}</td>
                 <td>{{ article.titre }}</td>
-              <td><img src="{{ article.image }}" height="100" width="100"alt"..."></td>
+              <td><img src="{{ article.image }}" height="100" width="100"alt"image"></td>
                 <td>{{ article.contenu }}</td>
                 <td>
                     <a href="{{ path('app_admin_article_show', {'id': article.id}) }}">Detail</a>
@@ -35,5 +35,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_admin_article_new') }}">Créer un nouvelle article</a>
+    <button class="btn btn-info"><a href="{{ path('app_admin_article_new') }}">Créer un nouvelle article</a></button>
 {% endblock %}

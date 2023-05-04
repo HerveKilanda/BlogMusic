@@ -31,7 +31,7 @@ class AdminUserController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $plainPassword = $form->get('plainPassword')->getData();
+            $plainPassword = $form->get('plainPassword')->getData();   // je reupere le mot de passe de mon formulaire
             $hashPassword = $passwordHasher->hashPassword($user,$plainPassword);
             $user->setPassword($hashPassword);
             $userRepository->save($user, true);
