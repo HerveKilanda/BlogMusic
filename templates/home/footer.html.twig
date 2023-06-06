@@ -1,34 +1,27 @@
-<!-- Footer -->
-    <footer class="footer section mt-5">
+<footer class="footer section mt-5">
+  <div class="footer-container">
+    <p class="footer-copyright">
+      &copy;2023 808Kulture. Réalisé par Hervé Kilanda.
+    </p>
+  </div>
 
-        <div class="footer-container-container-d-grid">
-                <p style="color:#FFF"class="copyright-notice">&copy;2023 808Kulture. Réalisé par Hervé Kilanda.</p>
-            </div>
-
-            <div>
-                <h6 class="footer-titre">Categories</h6>
-                {% if app.user %}
-                
-                <ul class="footer-list-list">
-                    <li class="list-item">
-                        <a href="{{path('app_contact')}}" class="list-link">Contact</a>
-                    </li>
-                    {% endif %}
-                    <li class="list-item">
-                        <a href="https://github.com/HerveKilanda" class="list-link">Github</a>
-                    </li>
-                    <li class="list-item">
-                       <a href="{{asset('images/Politique de confidentialité.pdf')}}">Politique de Confidentialité</a>
-                    </li>
-                    <li class="list-item">
-                       <a href="{{asset("images/Conditions d'utilisation.pdf")}}">Conditions d'utilisations</a>
-                    </li>
-                </ul>
-
-            </div>
-
-      
-
-        </div>
-        
-    </footer>
+  <div class="footer-categories">
+    <h6 class="footer-title">Catégories</h6>
+    {% if app.user %}
+    <ul class="footer-list">
+      <li class="footer-item">
+        <a href="{{ path('app_contact') }}" class="footer-link">Contact</a>
+      </li>
+    {% endif %}
+      <li class="footer-item">
+        <a href="https://github.com/HerveKilanda" class="footer-link">Github</a>
+      </li>
+      <li class="footer-item">
+        <a href="{{ asset('images/Politique de confidentialité.pdf') }}" class="footer-link">Politique de Confidentialité</a>
+      </li>
+      <li class="footer-item">
+        <a href="{{ asset('images/Conditions d\'utilisation.pdf') }}" class="footer-link">Conditions d'utilisation</a>
+      </li>
+    </ul>
+  </div>
+</footer>

@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello SucessController!{% endblock %}
+{% block title %}Message envoyez!{% endblock %}
 
 {% block body %}
 <style>
@@ -9,12 +9,10 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/Users/hervekilanda/Documents/BlogMusic/src/Controller/SucessController.php'|file_link(0) }}">src/Controller/SucessController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/Users/hervekilanda/Documents/BlogMusic/templates/sucess/index.html.twig'|file_link(0) }}">templates/sucess/index.html.twig</a></code></li>
-    </ul>
+    <div class="alert alert-dismissible alert-success">
+  <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+  <a href="#" class="alert-link">Message important</a>.
+  Votre message a bien été envoyé ✅
+</div>
 </div>
 {% endblock %}

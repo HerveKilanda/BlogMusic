@@ -14,8 +14,9 @@ use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Mime\Address;
 use Symfony\Component\Validator\Constraints\Regex;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
+
 
 
 
@@ -59,16 +60,32 @@ class RegistrationFormType extends AbstractType
                     ]),
                 ],
             ])
-            ->add('plainPassword', PasswordType::class, [
+            ->add('plainPassword', RepeatedType::class, [
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
+                'type' => PasswordType::class,
                 'mapped' => false,
+                'invalid_message' => 'The password fields must match.',
+                'first_options'  => ['label' => 'Password'],
+                 'second_options' => ['label' => 'Confirm Password'],
+                 'options' => ['attr' => ['class' => 'password-field']],
                 'attr' => ['autocomplete' => 'new-password'],
                 'constraints' => [
                    new Regex('/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{14,}$/',
+                //    Le regex ce sont les regles que l'on va appliquer sur du texte
                    "il faut un mot de passe de 14 caractères avec 1 majuscule, 1 minuscule, 1 chiffre et 1 caractère spécial")
                 ],
             ]);
+            // $builder->add('password', RepeatedType::class, [
+            //     'type' => PasswordType::class,
+            //     'invalid_message' => 'The password fields must match.',
+            //     'options' => ['attr' => ['class' => 'password-field']],
+            //     'required' => true,
+            //     'first_options'  => ['label' => 'Password'],
+            //     'second_options' => ['label' => 'Repeat Password'],
+            // ]);
+       
+
     }
     public function configureOptions(OptionsResolver $resolver): void
     {

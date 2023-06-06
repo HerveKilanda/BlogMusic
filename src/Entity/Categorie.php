@@ -73,7 +73,7 @@ class Categorie
         return $this;
     }
 
-    public function __toString()
+    public function __toString()   // sa retranscrie les object en chaine de caractere
     {
         return $this->nom;
     }

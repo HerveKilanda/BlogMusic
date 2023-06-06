@@ -1,13 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Article{% endblock %}
+{% block title %}Modifier l'article{% endblock %}
 
 {% block body %}
     <h1>Modifier l'article</h1>
 
-    {{ include('admin_article/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('admin_article/_form.html.twig', {'button_label': 'Valider la modification'}) }}
 
-    <button class="btn btn-danger"><a href="{{ path('app_admin_article_index') }}">Retour a la liste des articles</a></button>
+    <button class="btn btn-danger mt-2"><a href="{{ path('app_admin_article_index') }}">Retour a la liste des articles</a></button>
 
     {{ include('admin_article/_delete_form.html.twig') }}
 {% endblock %}

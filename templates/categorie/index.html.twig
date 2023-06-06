@@ -1,31 +1,29 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Categorie index{% endblock %}
+{% block title %}Categorie index
+{% endblock %}
 
 {% block body %}
-    <h1>Voici les categories du site</h1>
+	<h1>Voici les categories du site</h1>
 
-    <table class="table table-hover">
-        <thead>
-            <tr class="table-primary">
-                <th>Nom de la categorie</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for categorie in categories %}
-            <tr>
-                <td>{{ categorie.nom }}</td>
-                <td>
-                    <a href="{{ path('app_categorie_show', {'id': categorie.id}) }}">Consulter la liste des articles</a>
-    
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="2">Aucune categorie disponible</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+
+	<h2 style="color:#FFF">Nom des categories</h2>
+
+	{% for categorie in categories %}
+
+		<div class="espace">Categorie:
+			{{ categorie.nom }}
+
+			{# <button class="btn btn-info"><a href="{{ path('app_categorie_show', {'id': categorie.id}) }}">Consulter la liste des articles</a></button> #}
+			<a href="{{ path('app_categorie_show', {'id': categorie.id}) }}" class="btn btn-secondary">Consulter la liste des articles</a>
+		</div>
+
+
+	{% else %}
+		<tr>
+			<td colspan="2">Aucune categorie disponible</td>
+		</tr>
+	{% endfor %}
+
 
 {% endblock %}

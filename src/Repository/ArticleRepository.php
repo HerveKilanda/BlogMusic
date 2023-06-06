@@ -10,8 +10,8 @@ use Doctrine\Persistence\ManagerRegistry;
  * @extends ServiceEntityRepository<Article>
  *
  * @method Article|null find($id, $lockMode = null, $lockVersion = null)
- * @method Article|null findOneBy(array $criteria, array $orderBy = null)
- * @method Article[]    findAll()
+ * @method Article|null findOneBy(array $criteria, array $orderBy = null) de maniere extact
+ * @method Article[]    findAll() tout les article de la bdd
  * @method Article[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
 class ArticleRepository extends ServiceEntityRepository
@@ -66,16 +66,17 @@ class ArticleRepository extends ServiceEntityRepository
 
 
    /**
+    * cette methode retourne un  ensemble d'article
     * @return Article[] Returns an array of Article objects
     */
    public function findBySearch(string $text): array
    {
        return $this->createQueryBuilder('a')
-           ->andWhere('a.contenu LIKE :val')
-           ->setParameter('val', "%$text%")
+           ->andWhere('a.contenu LIKE :val')  // on recuperer le contenu de l'article qui est comme (Like ) une certaine valeur le Like match pas exactement
+           ->setParameter('val', "%$text%") // sa affiche une chaine de caractere ensuite le mot ou l'expression que tu recherche apres encore une chaine de caractere
            ->getQuery()
            ->getResult()
        ;
    }
-
+     // J'ai fais une recherche par mot et si ce mot inclu dans un article il va etre affiché
 }

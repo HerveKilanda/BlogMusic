@@ -31,9 +31,10 @@ class AdminUserController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $plainPassword = $form->get('plainPassword')->getData();   // je reupere le mot de passe de mon formulaire
-            $hashPassword = $passwordHasher->hashPassword($user,$plainPassword);
-            $user->setPassword($hashPassword);
+            $plainPassword = $form->get('plainPassword')->getData();   
+// je demande à mon formulaire de me chopper le champ "plainPassword" et de recuperer ce que l'utilisateur à saisit dans le champs
+            $hashPassword = $passwordHasher->hashPassword($user,$plainPassword);  // Je hash le password
+            $user->setPassword($hashPassword); // je recupere le resultat et je le remet dans l'utilisateur avant qu'il sois enregistré en bdd
             $userRepository->save($user, true);
 
             return $this->redirectToRoute('app_admin_user_index', [], Response::HTTP_SEE_OTHER);

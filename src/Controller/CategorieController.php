@@ -25,7 +25,7 @@ class CategorieController extends AbstractController
     #[Route('/{id}', name: 'app_categorie_show', methods: ['GET'])]
     public function show(Categorie $categorie): Response
     {
-        $articles = $categorie->getArticles();
+        $articles = $categorie->getArticles();  // Je récupere tout les articles grace au getter vu qu'il une relation entre catégorie et article
         return $this->render('categorie/show.html.twig', [
             'categorie' => $categorie,
             'articles' => $articles

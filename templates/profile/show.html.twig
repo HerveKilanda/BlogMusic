@@ -3,14 +3,10 @@
 {% block title %}User{% endblock %}
 
 {% block body %}
-    <h1>User</h1>
+    <h1>Modifier votre profil</h1>
 
     <table class="table">
         <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ user.id }}</td>
-            </tr>
             <tr>
                 <th>Email</th>
                 <td>{{ user.email }}</td>
@@ -27,5 +23,5 @@
     </table>
 
 
-    <a href="{{ path('app_profile_edit') }}">edit</a>
+    <a href="{{ path('app_profile_edit') }}" class="btn btn-info">Modifier</a>
 {% endblock %}

@@ -12,25 +12,24 @@
     <p class="card-text">{{ article.contenu }}</p>  
   </div>
 </div>
-
   {% if app.user %}
-  
     <div>
-
+    <button class="btn btn-info"><a href="{{ path('app_commentaire_new',{'id': article.id}) }}">Ajouter un commentaire</a></button>
     </div>
     <div>
     {% endif %}
+  
       {% if app.user %}
     <p>Commentaire:</p>
     {% for commentaire in commentaires %}
-        <div>{{app.user.userIdentifier}} a dit :</div>
+        <div>{{app.user.userIdentifier}} a dit :</div>       {# app.user.userIdentifier #}
         <div>{{commentaire.contenu}}</div>
-    
+   
     {% endfor %}
     {% endif %}
     </div>
 {% endblock %}
-  
+
   
   
     

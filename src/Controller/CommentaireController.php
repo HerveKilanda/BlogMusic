@@ -21,11 +21,11 @@ class CommentaireController extends AbstractController
 
     #[Route('/new', name: 'app_commentaire_new', methods: ['GET', 'POST'])]
     public function new(Request $request,Article $article, CommentaireRepository $commentaireRepository): Response
-    { // Param converter sa permet de passer d'un ID dans une URL a directement la recuperation en BDD
+    { // Param converter sa permet de passer d'un ID dans une URL vers un objet qu'il dois récupérer dans la bdd.
         $commentaire = new Commentaire();
         $commentaire->setCreatedAt(new DateTimeImmutable());
         $commentaire->setPseudo($this->getUser());    // sa correspond au Pseudo de l'entité commentaire  
-        $commentaire->setArticle($article);
+        $commentaire->setArticle($article); // le $article correspond au $article dans la function qu'on à recuperé grace à l'id.
 
         $form = $this->createForm(Commentaire1Type::class, $commentaire);
         $form->handleRequest($request);

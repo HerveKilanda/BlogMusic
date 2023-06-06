@@ -23,7 +23,7 @@ class ContactController extends AbstractController
          $adresse = $form->get('email')->getData();
          $sujet = $form->get('sujet')->getData();
          $recommandation = $form->get('Recommandation_article_ou_message')->getData();
-         $contenu = $form->get('contenu')->getData();
+         
 
          $email = (new Email())
          ->from($adresse)

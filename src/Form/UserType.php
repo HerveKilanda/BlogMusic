@@ -20,7 +20,7 @@ class UserType extends AbstractType
             ->add('email')
 
             ->add('plainPassword', TextType::class,[
-                'mapped' => false,
+                'mapped' => false,              // Le mot de passe n'est pas stocké directement en base de donées.
                 
             ])
             ->add('pseudo')

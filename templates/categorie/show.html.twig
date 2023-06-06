@@ -3,32 +3,67 @@
 {% block title %}Categorie{% endblock %}
 
 {% block body %}
-    <h1>{{ categorie.nom }}</h1>
-    <button class="btn btn-danger"><a href="{{ path('app_categorie_index') }}">Retourner a la liste des categories</a></button>
-     <div>
-          <table class="table table-hover">
-        <thead>
-            <tr class="table-primary">
-
-                <th>Titre</th>
-                <th>Image</th>
-            </tr>
-        </thead>
-        <tbody>
+<table class="table">
+    <thead class="table-primary">
+        <tr class="table-dark">
+            <th>Titre</th>
+            <th>Image</th>
+            <th class="d-none d-md-table-cell">Lire plus</th>
+        </tr>
+    </thead>
+    <tbody>
         {% for article in articles %}
-            <tr>
-                <td>{{ article.titre }}</td>
-                <td><img src="{{ article.image }}" alt="image" height="300" widht="100"></td>
-                <td>
-                    <a href="{{ path('app_article_show', {'id': article.id}) }}">Lire plus -></a>
-                </td>
-            </tr>
+        <tr {% if loop.index is odd %}class="table-secondary"{% endif %}>
+            <td class="text-center">{{ article.titre }}</td>
+            <td><img src="{{ article.image }}" alt="image" height="300" width="300"></td>
+            <td class="align-middle">
+                <a href="{{ path('app_article_show', {'id': article.id}) }}" class="btn btn-primary d-md-none">
+                    <i class="bi bi-arrow-right"></i> Lire plus
+                </a>
+                <a href="{{ path('app_article_show', {'id': article.id}) }}" class="btn btn-primary d-none d-md-inline">
+                    <i class="bi bi-arrow-right"></i> Lire plus
+                </a>
+            </td>
+        </tr>
         {% else %}
-            <tr>
-                <td colspan="5">Aucun article disponible</td>
-            </tr>
+        <tr>
+            <td colspan="3">Aucun article disponible</td>
+        </tr>
         {% endfor %}
-        </tbody>
-    </table>
+    </tbody>
+</table>
+
+<style>
+    /* Couleur de fond pour les lignes impaires du tableau */
+    .table-secondary {
+        background-color: #f2f2f2;
+    }
+
+    /* Style du bouton "Lire plus" */
+    .btn-primary {
+        background-color: #D21034;
+        color: #fff;
+        border: none;
+    }
+
+    /* Ajouter une marge inférieure au bouton de retour */
+    .btn-danger {
+        margin-bottom: 10px;
+    }
+
+    /* Couleur de texte pour les lignes avec fond blanc */
+    .table-secondary td,
+    .table-secondary th {
+        color: #000;
+    }
+</style>
+
+
+        </div>
     </div>
+</div>
+
+
+
+
 {% endblock %}
