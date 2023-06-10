@@ -25,8 +25,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         message: 'The email {{ value }} is not a valid email.',)]
     private ?string $email = null;
     
-    
-
     #[ORM\Column]
     private array $roles = [];
 

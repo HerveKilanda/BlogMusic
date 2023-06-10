@@ -73,7 +73,10 @@ class RegistrationFormType extends AbstractType
                 'constraints' => [
                    new Regex('/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{14,}$/',
                 //    Le regex ce sont les regles que l'on va appliquer sur du texte
-                   "il faut un mot de passe de 14 caractères avec 1 majuscule, 1 minuscule, 1 chiffre et 1 caractère spécial")
+                   "il faut un mot de passe de 14 caractères avec 1 majuscule, 1 minuscule, 1 chiffre et 1 caractère spécial"), 
+                   new NotBlank([
+                    'message' => "veuillez entrer un pseudo s'il vous plaît",
+                ]),
                 ],
             ]);
             // $builder->add('password', RepeatedType::class, [
